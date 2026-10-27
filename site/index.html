@@ -78,6 +78,8 @@
     font: 400 10px system-ui, sans-serif; color: var(--fg); text-shadow: 0 0 3px var(--bg), 0 0 3px var(--bg);
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
+  .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .credit a:focus-visible { outline: 2px solid var(--flag-red-dark); outline-offset: 2px; }
   .zoom {
     position: fixed; z-index: 5; display: grid; gap: 6px;
     top: calc(12px + env(safe-area-inset-top, 0px));
@@ -111,7 +113,7 @@
 </div>
 
 <nav class="chips" aria-label="Jump to a frame" id="chips"></nav>
-<div class="credit">Render: Google Photorealistic 3D Tiles, Map data ©2026 Google · Water © OpenStreetMap contributors · Weather: Open-Meteo</div>
+<div class="credit">Render: Google Photorealistic 3D Tiles, Map data ©2026 Google · Water © OpenStreetMap contributors · Weather: Open-Meteo · <a href="https://janjs.dev/" rel="me">made by janjs.dev</a></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
 <script>
