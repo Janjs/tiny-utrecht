@@ -41,11 +41,11 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # skipped until the Coolify app exists and its webhook is saved as a repo secret
+      # skipped until both the webhook and a Coolify API token are saved as repo secrets
       - name: Deploy to Coolify
         env:
           COOLIFY_WEBHOOK: ${{ secrets.COOLIFY_WEBHOOK }}
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
-        if: env.COOLIFY_WEBHOOK != ''
+        if: env.COOLIFY_WEBHOOK != '' && env.COOLIFY_TOKEN != ''
         run: |
           curl --fail --request GET "$COOLIFY_WEBHOOK" --header "Authorization: Bearer $COOLIFY_TOKEN"
