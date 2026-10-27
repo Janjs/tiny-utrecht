@@ -245,8 +245,8 @@
   ];
   const vp = (px) => px / CANVAS_W; // OpenSeadragon viewport units: canvas width = 1
   // tiny.london's viewer stops at 1.1 screen pixels per map pixel; both maps are 0.293 m per pixel,
-  // so the same limit gives the same closest view.
-  const MAX_SCREEN_PX_PER_MAP_PX = 1.1;
+  // so the same limit gives the same closest view. Touch devices can go closer — small screens need it.
+  const maxScreenPxPerMapPx = () => (matchMedia("(pointer: coarse)").matches ? 2.2 : 1.1);
 
   const viewer = OpenSeadragon({
     element: document.getElementById("map"),
@@ -273,7 +273,7 @@
   function fitZoomLimits() {
     const { x: w, y: h } = viewer.viewport.getContainerSize();
     viewer.viewport.minZoomLevel = Math.max(1, (h / w) / (CANVAS_H / CANVAS_W));
-    viewer.viewport.maxZoomLevel = (MAX_SCREEN_PX_PER_MAP_PX * CANVAS_W) / w;
+    viewer.viewport.maxZoomLevel = (maxScreenPxPerMapPx() * CANVAS_W) / w;
     viewer.viewport.applyConstraints(true);
   }
   // Open fully zoomed out on the whole map, and stay that way through resizes
