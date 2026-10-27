@@ -1,0 +1,12 @@
+.env
+node_modules/
+.DS_Store
+__pycache__/
+# working files: renders, Gemini drawings, intermediate maps (regenerate with the scripts)
+out/
+# Andy Coenen's isometric-nyc, cloned for reference
+isometric-nyc/
+# test frames from the preview, no longer used by the site
+site/frames/
+site/map.dzi
+.claude/

@@ -1,0 +1,18 @@
+{
+  "name": "Utrecht binnenstad",
+  "lat": 52.0905,
+  "lon": 5.1185,
+  "azimuth_deg": -15,
+  "elevation_deg": -45,
+  "target_height_m": 46,
+  "meters_per_px": 0.293,
+  "canvas_px": [
+    10240,
+    6144
+  ],
+  "shot_px": 2048,
+  "origin_px": [
+    -4096,
+    -3072
+  ]
+}
